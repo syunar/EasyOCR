@@ -1,15 +1,15 @@
 number: '0123456789'
 symbol: "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ €"
-lang_char: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
-experiment_name: 'en_filtered'
-train_data: 'all_data'
-valid_data: 'all_data/en_val'
+lang_char: 'กขคฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรฤลวศษสหฬอฮฯะ ัา ำ ิ ี ึ ื ุ ู ฺเแโใไๆ ็ ่ ้ ๊ ๋ ์ ํ'
+experiment_name: 'mangaocr'
+train_data: 'all_data/content/output'
+valid_data: 'all_data/content/output/val'
 manualSeed: 1111
-workers: 6
+workers: 2
 batch_size: 32 #32
 num_iter: 300000
-valInterval: 20000
-saved_model: '' #'saved_models/en_filtered/iter_300000.pth'
+valInterval: 5000
+saved_model: '' #'/content/drive/MyDrive/for_work/manga_translator/ocr/saved_models/mangaocr/iter_300000.pth'
 FT: False
 optim: False # default is Adadelta
 lr: 1.
@@ -18,7 +18,7 @@ rho: 0.95
 eps: 0.00000001
 grad_clip: 5
 #Data processing
-select_data: 'en_train_filtered' # this is dataset folder in train_data
+select_data: 'train' # this is dataset folder in train_data
 batch_ratio: '1' 
 total_data_usage_ratio: 1.0
 batch_max_length: 34 
@@ -32,7 +32,7 @@ contrast_adjust: 0.0
 data_filtering_off: False
 # Model Architecture
 Transformation: 'None'
-FeatureExtraction: 'VGG'
+FeatureExtraction: 'ResNet'
 SequenceModeling: 'BiLSTM'
 Prediction: 'CTC'
 num_fiducial: 20
